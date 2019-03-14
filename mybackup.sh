@@ -7,19 +7,38 @@
 #badboy
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 
-log_file=backup.log
+
+#read config file 
+while read line;do  
+    eval "$line"  
+done < mybackup.cnf  
+echo $dateserver
+echo $databases
+echo $user
+echo $port
+echo $log_file
+#=backup.log
+touch $log_file
+
+source mybackup.cnf
+echo $dateserver
+echo $databases
+echo $user
+echo $port
+echo $log_file
 touch $log_file
 
 dateserver=192.168.10.57
-#databases="conservancy_reservoir gx"
 databases="gx"
 user=root
 passwd=111
 port=3306
+
 databak_dir=`date +%Y%m%d`   #备份的目录
 mkdir $databak_dir
 tarfile=gz-$databak_dir.tar.gz
 
+exit 
 
 #备份数据
 for database in $databases
