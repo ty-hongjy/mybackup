@@ -19,7 +19,7 @@ echo $databases
 echo $user
 echo $port
 echo $log_file
-touch $log_file
+echo $delete_backup_dir
 
 source mybackup.cnf
 echo $dateserver
@@ -27,6 +27,8 @@ echo $databases
 echo $user
 echo $port
 echo $log_file
+echo $delete_backup_dir
+
 touch $log_file
 
 dateserver=192.168.10.57
@@ -61,9 +63,12 @@ echo start tar $tarfile at:`date +%T` >> $log_file
 tar -cvzf $tarfile $databak_dir
 echo end tar $tarfile at:`date +%T` >> $log_file
 
-echo start rm $databak_dir at:`date +%T`  >> $log_file
-rm $databak_dir -rf
-echo end rm $databak_dir at:`date +%T`  >> $log_file
+if [ $delete_backup_dir = "yes" ]; then
+#if test $delete_backup_dir = "yes"; then
+	echo start rm $databak_dir at:`date +%T`  >> $log_file
+	rm $databak_dir -rf
+	echo end rm $databak_dir at:`date +%T`  >> $log_file
+fi
 
 echo '---------------------------------------'  >> $log_file
 
