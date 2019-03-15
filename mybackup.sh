@@ -5,6 +5,8 @@
 # This is mysql mysqlfullbak scripts
 #2009-08-20
 #badboy
+#20190315 modified by hongjy
+
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 
 
@@ -17,7 +19,6 @@ echo $databases
 echo $user
 echo $port
 echo $log_file
-#=backup.log
 touch $log_file
 
 source mybackup.cnf
@@ -38,7 +39,7 @@ databak_dir=`date +%Y%m%d`   #备份的目录
 mkdir $databak_dir
 tarfile=gz-$databak_dir.tar.gz
 
-exit 
+#exit 
 
 #备份数据
 for database in $databases
