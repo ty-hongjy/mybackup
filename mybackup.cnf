@@ -2,9 +2,12 @@
 
 log_file=log\backup.log
 
+# yes/no
+delete_backup_dir=no
+
 dateserver=192.168.10.57
 #eg. databases="database1,database2" for multi databses;
-databases=gx
+databases=gx,gx_report
 user=root
 passwd=111
 port=3306
