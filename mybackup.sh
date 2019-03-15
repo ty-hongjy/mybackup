@@ -20,6 +20,7 @@ echo $user
 echo $port
 echo $log_file
 echo $delete_backup_dir
+echo $backuk_file_prefix
 
 source mybackup.cnf
 echo $dateserver
@@ -28,6 +29,7 @@ echo $user
 echo $port
 echo $log_file
 echo $delete_backup_dir
+echo $backuk_file_prefix
 
 touch $log_file
 
@@ -39,7 +41,7 @@ port=3306
 
 databak_dir=`date +%Y%m%d`   #备份的目录
 mkdir $databak_dir
-tarfile=gz-$databak_dir.tar.gz
+tarfile=$backuk_file_prefix-$databak_dir.tar.gz
 
 #exit 
 
