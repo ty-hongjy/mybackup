@@ -4,6 +4,7 @@ log_file=log\backup.log
 
 # yes/no
 delete_backup_dir=no
+backuk_file_prefix=mygz
 
 dateserver=192.168.10.57
 #eg. databases="database1,database2" for multi databses;
